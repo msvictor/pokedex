@@ -1,12 +1,12 @@
 import React from 'react';
-import Icon from 'react-native-vector-icons/Feather';
 
-import { Container } from './styles';
+import { Container, Icon, Input } from './styles';
 
 export const SearchField: React.FC = () => {
   return (
     <Container>
-      <Icon name="search" />
+      <Icon name="search" size={20} />
+      <Input placeholder="Search Pokémons..." />
     </Container>
   );
 };

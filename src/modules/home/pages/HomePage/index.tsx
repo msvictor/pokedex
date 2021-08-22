@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text, SafeAreaView } from 'react-native';
 import Header from '../../components/Header';
 
 export const HomePage: React.FC = () => {
   return (
-    <View>
+    <SafeAreaView>
       <Header />
       <Text>HomePage</Text>
-    </View>
+    </SafeAreaView>
   );
 };
