@@ -31,8 +31,7 @@ export const PokeBall = styled.Image.attrs({
 
 export const Title = styled.Text`
   color: ${AppColors.WHITE};
-  font-family: 'Poppins';
-  font-weight: 700;
+  font-family: 'Poppins-SemiBold';
   font-size: 30px;
   text-align: left;
 `;

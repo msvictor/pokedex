@@ -1,9 +1,12 @@
 import React from 'react';
+import Icon from 'react-native-vector-icons/Feather';
 
 import { Container } from './styles';
 
-const SearchField: React.FC = () => {
-  return <Container />;
+export const SearchField: React.FC = () => {
+  return (
+    <Container>
+      <Icon name="search" />
+    </Container>
+  );
 };
-
-export default SearchField;
