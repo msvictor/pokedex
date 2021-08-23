@@ -811,7 +811,7 @@ export const HomePage: React.FC = () => {
         keyExtractor={(item) => String(item.id)}
         ListHeaderComponent={() => <Header />}
         columnWrapperStyle={{
-          paddingHorizontal: 20,
+          paddingHorizontal: 12,
         }}
         renderItem={({ item }) => (
           <PokeCard
