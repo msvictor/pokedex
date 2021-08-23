@@ -1,4 +1,8 @@
-import type { iGREY_COLORS, iTYPE_COLORS, iGET_COLOR_BY_TYPE } from './types';
+import type {
+  iGREY_COLORS,
+  iTYPE_COLORS,
+  iGET_COLOR_BY_TYPE,
+} from '../../@types';
 
 class AppColors {
   static readonly TYPE_NORMAL: string = '#A8A878';
@@ -38,6 +42,8 @@ class AppColors {
   static readonly TYPE_FAIRY: string = '#F4B0BF';
 
   static readonly WHITE: string = '#FFFFFF';
+
+  static readonly WHITE_ALPHA: string = 'rgba(255,255,255,0.3)';
 
   static readonly RED: string = '#FB6C6C';
 
