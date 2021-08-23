@@ -1,3 +1,23 @@
+export type tPOKE_TYPES_NAMES =
+  | 'normal'
+  | 'fighting'
+  | 'flying'
+  | 'poison'
+  | 'ground'
+  | 'rock'
+  | 'bug'
+  | 'ghost'
+  | 'steel'
+  | 'fire'
+  | 'water'
+  | 'grass'
+  | 'electric'
+  | 'psychic'
+  | 'ice'
+  | 'dragon'
+  | 'dark'
+  | 'fairy';
+
 export interface iGREY_COLORS {
   '50': string;
   '100': string;
@@ -27,23 +47,5 @@ export interface iTYPE_COLORS {
 }
 
 export interface iGET_COLOR_BY_TYPE {
-  typeName:
-    | 'normal'
-    | 'fighting'
-    | 'flying'
-    | 'poison'
-    | 'ground'
-    | 'rock'
-    | 'bug'
-    | 'ghost'
-    | 'steel'
-    | 'fire'
-    | 'water'
-    | 'grass'
-    | 'electric'
-    | 'psychic'
-    | 'ice'
-    | 'dragon'
-    | 'dark'
-    | 'fairy';
+  typeName: tPOKE_TYPES_NAMES;
 }
