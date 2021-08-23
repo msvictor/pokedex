@@ -4,17 +4,16 @@ import styled from 'styled-components/native';
 import AppColors from '../../../../core/colors';
 import AppImages from '../../../../core/images';
 
-const { width } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 export const Container = styled.View`
   position: relative;
   background-color: ${AppColors.RED};
-  max-height: 40%;
-  height: 100%;
+  height: ${height * 0.45}px;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
   justify-content: flex-end;
-  padding: 15px 30px;
+  padding: 15px 20px;
 `;
 
 export const PokeBall = styled.Image.attrs({

@@ -19,6 +19,7 @@
   "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
   "rules": {
     "camelcase": "off",
+    "no-plusplus": "off",
     "global-require": "off",
     "prettier/prettier": "error",
     "no-use-before-define": "off",
