@@ -1,5 +1,5 @@
-import React, { useMemo } from 'react';
-import { FlatList, View } from 'react-native';
+import React from 'react';
+import { FlatList } from 'react-native';
 
 import { PokeCard } from '../PokeCard';
 
