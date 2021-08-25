@@ -46,29 +46,26 @@ export const PokeList: React.FC<iPokeListProps> = ({
     return data;
   }
 
-  return useMemo(
-    () => (
-      <FlatList
-        data={createRows(pokemons, COLUMNS_NUMBER)}
-        numColumns={COLUMNS_NUMBER}
-        keyExtractor={(item) => item.num}
-        ListHeaderComponent={header}
-        columnWrapperStyle={{
-          paddingHorizontal: 12,
-        }}
-        renderItem={({ item }) => {
-          return (
-            <PokeCard
-              name={item.name}
-              num={item.num}
-              type={item.type}
-              imageUrl={item.img}
-              empty={item.empty || false}
-            />
-          );
-        }}
-      />
-    ),
-    [pokemons, header]
+  return (
+    <FlatList
+      data={createRows(pokemons, COLUMNS_NUMBER)}
+      numColumns={COLUMNS_NUMBER}
+      keyExtractor={(item) => item.num}
+      ListHeaderComponent={header}
+      columnWrapperStyle={{
+        paddingHorizontal: 12,
+      }}
+      renderItem={({ item }) => {
+        return (
+          <PokeCard
+            name={item.name}
+            num={item.num}
+            type={item.type}
+            imageUrl={item.img}
+            empty={item.empty || false}
+          />
+        );
+      }}
+    />
   );
 };
