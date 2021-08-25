@@ -41,6 +41,8 @@ class AppColors {
 
   static readonly TYPE_FAIRY: string = '#F4B0BF';
 
+  static readonly TRANSPARENT: string = 'transparent';
+
   static readonly WHITE: string = '#FFFFFF';
 
   static readonly WHITE_ALPHA: string = 'rgba(255,255,255,0.3)';

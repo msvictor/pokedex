@@ -49,3 +49,29 @@ export interface iTYPE_COLORS {
 export interface iGET_COLOR_BY_TYPE {
   typeName: tPOKE_TYPES_NAMES;
 }
+
+export interface iPOKE_EVOLUTION {
+  num: string;
+  name: string;
+}
+
+export interface iPOKEMON {
+  id: number;
+  num: string;
+  name: string;
+  img: string;
+  type: string[];
+  height: string;
+  weight: string;
+  candy: string;
+  candy_count: number;
+  egg: string;
+  spawn_chance: number;
+  avg_spawns: number;
+  spawn_time: string;
+  multipliers: number[];
+  weaknesses: string[];
+  prev_evolution?: iPOKE_EVOLUTION[];
+  next_evolution?: iPOKE_EVOLUTION[];
+  empty?: boolean;
+}

@@ -6,7 +6,7 @@ interface iTypeBadgeProps {
   typeName: string;
 }
 
-const TypeBadge: React.FC<iTypeBadgeProps> = ({
+export const TypeBadge: React.FC<iTypeBadgeProps> = ({
   typeName,
 }: iTypeBadgeProps) => {
   return (
@@ -15,5 +15,3 @@ const TypeBadge: React.FC<iTypeBadgeProps> = ({
     </Container>
   );
 };
-
-export default TypeBadge;

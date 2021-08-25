@@ -13,6 +13,7 @@ export const Container = styled.View<iContainerProps>`
   border-radius: 12px;
   background-color: ${(props) => props.bgColor};
   margin: 4px;
+  min-height: 120px;
 `;
 
 export const Identification = styled.View`

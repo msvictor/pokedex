@@ -3,7 +3,7 @@ import { SearchField } from '../SearchField';
 
 import { Container, PokeBall, Title } from './styles';
 
-const Header: React.FC = () => {
+export const Header: React.FC = () => {
   return (
     <Container>
       <PokeBall />
@@ -12,5 +12,3 @@ const Header: React.FC = () => {
     </Container>
   );
 };
-
-export default Header;
