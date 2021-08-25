@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native';
+
 import axios from 'axios';
 
 import AppConstants from '@core/constants';

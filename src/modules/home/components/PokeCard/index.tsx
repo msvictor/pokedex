@@ -5,6 +5,7 @@ import AppColors from '@core/colors';
 import { TypeBadge } from '@components/TypeBadge';
 
 import type { POKE_TYPES_NAMES } from '@types';
+import type { TouchableOpacityProps } from 'react-native';
 
 import {
   Container,
@@ -18,7 +19,7 @@ import {
   PokeBall,
 } from './styles';
 
-interface iPokeCardProps {
+interface iPokeCardProps extends TouchableOpacityProps {
   num: string;
   name: string;
   type: string[];
@@ -32,6 +33,7 @@ export const PokeCard: React.FC<iPokeCardProps> = ({
   type,
   imageUrl,
   empty = false,
+  ...rest
 }: iPokeCardProps) => {
   return (
     <Container
@@ -42,6 +44,8 @@ export const PokeCard: React.FC<iPokeCardProps> = ({
               typeName: type[0].toLowerCase() as POKE_TYPES_NAMES,
             })
       }
+      activeOpacity={0.8}
+      {...rest}
     >
       {!empty && (
         <>

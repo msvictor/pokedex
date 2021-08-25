@@ -1,5 +1,10 @@
 import React from 'react';
 import { FlatList } from 'react-native';
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from '@react-navigation/native';
 
 import { PokeCard } from '@home/components/PokeCard';
 
@@ -15,6 +20,7 @@ export const PokeList: React.FC<iPokeListProps> = ({
   header,
 }: iPokeListProps) => {
   const COLUMNS_NUMBER = 2;
+  const navigation = useNavigation<NavigationProp<ParamListBase>>();
 
   function createRows(data: POKEMON[], columns: number): POKEMON[] {
     const rows = Math.floor(data.length / columns);
@@ -63,6 +69,12 @@ export const PokeList: React.FC<iPokeListProps> = ({
             type={item.type}
             imageUrl={item.img}
             empty={item.empty || false}
+            onPress={() => {
+              navigation.navigate('Details', {
+                name: item.name,
+                num: item.num,
+              });
+            }}
           />
         );
       }}

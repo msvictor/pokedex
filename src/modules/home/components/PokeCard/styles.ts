@@ -7,7 +7,7 @@ interface iContainerProps {
   bgColor: string;
 }
 
-export const Container = styled.View<iContainerProps>`
+export const Container = styled.TouchableOpacity<iContainerProps>`
   flex: 1;
   flex-basis: 0;
   padding: 16px;
