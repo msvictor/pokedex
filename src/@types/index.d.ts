@@ -1,4 +1,4 @@
-export type tPOKE_TYPES_NAMES =
+export type POKE_TYPES_NAMES =
   | 'normal'
   | 'fighting'
   | 'flying'
@@ -18,14 +18,14 @@ export type tPOKE_TYPES_NAMES =
   | 'dark'
   | 'fairy';
 
-export interface iGREY_COLORS {
+export interface GREY_COLORS {
   '50': string;
   '100': string;
   '300': string;
   '400': string;
 }
 
-export interface iTYPE_COLORS {
+export interface TYPE_COLORS {
   normal: string;
   fighting: string;
   flying: string;
@@ -46,16 +46,16 @@ export interface iTYPE_COLORS {
   fairy: string;
 }
 
-export interface iGET_COLOR_BY_TYPE {
-  typeName: tPOKE_TYPES_NAMES;
+export interface GET_COLOR_BY_TYPE {
+  typeName: POKE_TYPES_NAMES;
 }
 
-export interface iPOKE_EVOLUTION {
+export interface POKE_EVOLUTION {
   num: string;
   name: string;
 }
 
-export interface iPOKEMON {
+export interface POKEMON {
   id: number;
   num: string;
   name: string;
@@ -71,7 +71,7 @@ export interface iPOKEMON {
   spawn_time: string;
   multipliers: number[];
   weaknesses: string[];
-  prev_evolution?: iPOKE_EVOLUTION[];
-  next_evolution?: iPOKE_EVOLUTION[];
+  prev_evolution?: POKE_EVOLUTION[];
+  next_evolution?: POKE_EVOLUTION[];
   empty?: boolean;
 }
