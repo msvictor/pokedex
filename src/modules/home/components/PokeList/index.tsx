@@ -1,12 +1,12 @@
 import React from 'react';
 import { FlatList } from 'react-native';
 
-import { PokeCard } from '../PokeCard';
+import { PokeCard } from '@home/components/PokeCard';
 
-import type { iPOKEMON } from '../../../../@types';
+import type { POKEMON } from '@types';
 
 interface iPokeListProps {
-  pokemons: iPOKEMON[];
+  pokemons: POKEMON[];
   header: React.ComponentType;
 }
 
@@ -16,7 +16,7 @@ export const PokeList: React.FC<iPokeListProps> = ({
 }: iPokeListProps) => {
   const COLUMNS_NUMBER = 2;
 
-  function createRows(data: iPOKEMON[], columns: number): iPOKEMON[] {
+  function createRows(data: POKEMON[], columns: number): POKEMON[] {
     const rows = Math.floor(data.length / columns);
 
     let lastRowElements = data.length - rows * columns;

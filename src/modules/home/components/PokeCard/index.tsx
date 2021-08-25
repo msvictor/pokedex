@@ -1,8 +1,10 @@
 import React from 'react';
 
-import AppColors from '../../../../core/colors';
-import type { tPOKE_TYPES_NAMES } from '../../../../@types';
-import { TypeBadge } from '../../../_shared/components/TypeBadge';
+import AppColors from '@core/colors';
+
+import { TypeBadge } from '@components/TypeBadge';
+
+import type { POKE_TYPES_NAMES } from '@types';
 
 import {
   Container,
@@ -37,7 +39,7 @@ export const PokeCard: React.FC<iPokeCardProps> = ({
         empty
           ? AppColors.TRANSPARENT
           : AppColors.getColorByTypeName({
-              typeName: type[0].toLowerCase() as tPOKE_TYPES_NAMES,
+              typeName: type[0].toLowerCase() as POKE_TYPES_NAMES,
             })
       }
     >

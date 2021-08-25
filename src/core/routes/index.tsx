@@ -1,10 +1,10 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { HomePage } from '../../modules/home/pages';
-import { DetailsPage } from '../../modules/details/pages';
+import AppColors from '@core/colors';
 
-import AppColors from '../colors';
+import { HomePage } from '@home/pages/HomePage';
+import { DetailsPage } from '@details/pages/DetailsPage';
 
 const Stack = createNativeStackNavigator();
 

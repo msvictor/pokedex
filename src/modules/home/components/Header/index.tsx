@@ -1,5 +1,6 @@
 import React from 'react';
-import { SearchField } from '../SearchField';
+
+import { SearchField } from '@home/components/SearchField';
 
 import { Container, PokeBall, Title } from './styles';
 

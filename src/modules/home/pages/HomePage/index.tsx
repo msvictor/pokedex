@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native';
 import axios from 'axios';
 
-import type { iPOKEMON } from '../../../../@types';
-import AppConstants from '../../../../core/constants';
+import AppConstants from '@core/constants';
 
-import { Header } from '../../components/Header';
-import { PokeList } from '../../components/PokeList';
+import { Header } from '@home/components/Header';
+import { PokeList } from '@home/components/PokeList';
+
+import type { POKEMON } from '@types';
 
 export const HomePage: React.FC = () => {
-  const [pokemons, setPokemons] = useState<iPOKEMON[]>([]);
+  const [pokemons, setPokemons] = useState<POKEMON[]>([]);
 
   useEffect(() => {
     async function getPokemons(): Promise<void> {

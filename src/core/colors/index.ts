@@ -1,8 +1,4 @@
-import type {
-  iGREY_COLORS,
-  iTYPE_COLORS,
-  iGET_COLOR_BY_TYPE,
-} from '../../@types';
+import type { GREY_COLORS, TYPE_COLORS, GET_COLOR_BY_TYPE } from '@types';
 
 class AppColors {
   static readonly TYPE_NORMAL: string = '#A8A878';
@@ -53,15 +49,15 @@ class AppColors {
 
   static readonly GREEN: string = '#21CE65';
 
-  static readonly GREY: iGREY_COLORS = {
+  static readonly GREY: GREY_COLORS = {
     '50': '#F9F9F9',
     '100': '#E0E0E0',
     '300': '#828282',
     '400': '#4F4F4F',
   };
 
-  static getColorByTypeName({ typeName }: iGET_COLOR_BY_TYPE): string {
-    const typeColor: iTYPE_COLORS = {
+  static getColorByTypeName({ typeName }: GET_COLOR_BY_TYPE): string {
+    const typeColor: TYPE_COLORS = {
       normal: this.TYPE_NORMAL,
       fighting: this.TYPE_FIGHTING,
       flying: this.TYPE_FLYING,
