@@ -6,6 +6,8 @@ import AppColors from '@core/colors';
 
 import { Routes } from '@core/routes';
 
+import 'react-native-gesture-handler';
+
 const App: React.FC = () => {
   return (
     <NavigationContainer>
