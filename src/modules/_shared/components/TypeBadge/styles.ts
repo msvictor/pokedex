@@ -6,7 +6,7 @@ export const Container = styled.View`
   background-color: ${AppColors.WHITE_ALPHA};
   border-radius: 50px;
   padding: 0 8px;
-  margin-top: 2px;
+  margin: 2px 4px;
 `;
 
 export const Type = styled.Text`
