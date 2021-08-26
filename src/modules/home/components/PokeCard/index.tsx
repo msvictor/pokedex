@@ -37,6 +37,7 @@ export const PokeCard: React.FC<iPokeCardProps> = ({
 }: iPokeCardProps) => {
   return (
     <Container
+      activeOpacity={0.8}
       bgColor={
         empty
           ? AppColors.TRANSPARENT
@@ -44,7 +45,6 @@ export const PokeCard: React.FC<iPokeCardProps> = ({
               typeName: type[0].toLowerCase() as POKE_TYPES_NAMES,
             })
       }
-      activeOpacity={0.8}
       {...rest}
     >
       {!empty && (
