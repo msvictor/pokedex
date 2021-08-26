@@ -9,7 +9,7 @@ class AppColors {
 
   static readonly TYPE_POISON: string = '#9C27B0';
 
-  static readonly TYPE_GROUND: string = '#FFD54F';
+  static readonly TYPE_GROUND: string = '#DCC271';
 
   static readonly TYPE_ROCK: string = '#B8A038';
 
@@ -25,7 +25,7 @@ class AppColors {
 
   static readonly TYPE_GRASS: string = '#4EBE52';
 
-  static readonly TYPE_ELECTRIC: string = '#FCD86F';
+  static readonly TYPE_ELECTRIC: string = '#FFD54F';
 
   static readonly TYPE_PSYCHIC: string = '#EC3070';
 
