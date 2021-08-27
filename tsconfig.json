@@ -45,6 +45,8 @@
       "@assets/*": ["assets/*"],
       "@modules/*": ["modules/*"],
       "@components/*": ["modules/_shared/components/*"],
+      "@contexts/*": ["modules/_shared/contexts/*"],
+      "@hooks/*": ["modules/_shared/hooks/*"],
       "@details/*": ["modules/details/*"],
       "@home/*": ["modules/home/*"]
     },

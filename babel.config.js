@@ -12,6 +12,8 @@ module.exports = {
           '@assets': './src/assets',
           '@modules': './src/modules',
           '@components': './src/modules/_shared/components',
+          '@contexts': './src/modules/_shared/contexts',
+          '@hooks': './src/modules/_shared/hooks',
           '@details': './src/modules/details',
           '@home': './src/modules/home',
         },
