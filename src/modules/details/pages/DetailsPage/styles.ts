@@ -24,3 +24,15 @@ export const Content = styled.View`
 export const Section = styled.View`
   flex: 1;
 `;
+
+interface iLoaderProps {
+  color: string;
+}
+
+export const Loader = styled.ActivityIndicator.attrs({
+  size: 36,
+})<iLoaderProps>`
+  color: ${(props) => props.color};
+  margin-top: auto;
+  margin-bottom: auto;
+`;
