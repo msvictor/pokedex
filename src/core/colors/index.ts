@@ -52,6 +52,7 @@ class AppColors {
   static readonly GREY: GREY_COLORS = {
     '50': '#F9F9F9',
     '100': '#E0E0E0',
+    '200': '#BDBDBD',
     '300': '#828282',
     '400': '#4F4F4F',
   };
