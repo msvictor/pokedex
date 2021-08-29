@@ -7,6 +7,8 @@ class AppConstants {
 
   static readonly POKEAPIV2_SPECIES_URL: string =
     'https://pokeapi.co/api/v2/pokemon-species';
+
+  static readonly BIGGEST_POKE_BASE_STAT: number = 800;
 }
 
 export default AppConstants;

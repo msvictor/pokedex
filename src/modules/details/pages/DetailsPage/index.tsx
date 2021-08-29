@@ -11,8 +11,10 @@ import AppColors from '@core/colors';
 import DetailsSections from '@details/utils/DetailsSections';
 import { Header } from '@details/components/Header';
 import { PokeImage } from '@details/components/PokeImage';
+
 import { SectionOptions } from '@details/components/SectionOptions';
 import { About } from '@details/components/Sections/About';
+import { Stats } from '@details/components/Sections/Stats';
 
 import { Container, Content, Section, Loader } from './styles';
 
@@ -43,9 +45,7 @@ export const DetailsPage: React.FC = () => {
       await Promise.all([
         getPokemonInfo(pokemon.id),
         getPokemonSpecies(pokemon.id),
-      ]).then((values) => {
-        const [info, species] = values;
-
+      ]).then(([info, species]) => {
         setPokeInfo(info);
         setPokeSpecies(species);
       });
@@ -82,7 +82,7 @@ export const DetailsPage: React.FC = () => {
               })}
             />
           ) : (
-            <About pokemon={pokemon} info={pokeInfo} species={pokeSpecies} />
+            <Stats stats={pokeInfo.stats} />
           )}
         </Section>
       </Content>
