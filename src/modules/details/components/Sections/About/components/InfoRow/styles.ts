@@ -11,7 +11,7 @@ export const Container = styled.View`
 export const Label = styled.Text`
   flex: 1;
   font-family: 'Poppins-SemiBold';
-  font-size: 13px;
+  font-size: 12px;
   color: ${AppColors.GREY[200]};
   text-transform: capitalize;
 `;
@@ -19,7 +19,7 @@ export const Label = styled.Text`
 export const Caption = styled.Text`
   flex: 2;
   font-family: 'Poppins-SemiBold';
-  font-size: 13px;
+  font-size: 12px;
   color: ${AppColors.GREY[400]};
   text-transform: capitalize;
 `;
