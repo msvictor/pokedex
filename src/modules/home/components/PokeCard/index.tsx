@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import AppColors from '@core/colors';
 
@@ -48,7 +48,7 @@ export const PokeCard: React.FC<iPokeCardProps> = ({
       {...rest}
     >
       {!empty && (
-        <>
+        <Fragment>
           <Identification>
             <Name>{name}</Name>
             <Num>#{num}</Num>
@@ -64,7 +64,7 @@ export const PokeCard: React.FC<iPokeCardProps> = ({
               <PokeImage source={{ uri: imageUrl }} />
             </Thumbnail>
           </Pokemon>
-        </>
+        </Fragment>
       )}
     </Container>
   );

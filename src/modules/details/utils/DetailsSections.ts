@@ -1,4 +1,4 @@
-import type { DETAIL_SECTION } from '@types';
+import type { DETAIL_SECTION } from '@details/@types';
 
 class DetailsSections {
   static readonly SECTIONS: DETAIL_SECTION[] = [

@@ -76,8 +76,3 @@ export interface POKEMON {
   next_evolution?: POKE_EVOLUTION[];
   empty?: boolean;
 }
-
-export interface DETAIL_SECTION {
-  caption: string;
-  isActive: boolean;
-}

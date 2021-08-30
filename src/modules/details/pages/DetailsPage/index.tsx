@@ -1,4 +1,5 @@
-import type { DETAIL_SECTION, POKEMON, POKE_TYPES_NAMES } from '@types';
+import type { POKEMON, POKE_TYPES_NAMES } from '@types';
+import type { DETAIL_SECTIONS_NAME } from '@modules/details/@types';
 import type { POKEAPI_POKEMON, POKEAPI_SPECIES } from '@contexts/pokeapi/types';
 
 import React, { useCallback, useEffect, useState } from 'react';
@@ -8,32 +9,38 @@ import { usePokeapi } from '@contexts/pokeapi';
 
 import AppColors from '@core/colors';
 
-import DetailsSections from '@details/utils/DetailsSections';
 import { Header } from '@details/components/Header';
 import { PokeImage } from '@details/components/PokeImage';
 
-import { SectionOptions } from '@details/components/SectionOptions';
-import { About } from '@details/components/Sections/About';
-import { Stats } from '@details/components/Sections/Stats';
-import { Evolution } from '@details/components/Sections/Evolution';
-import { Moves } from '@details/components/Sections/Moves';
+import { useSection } from '@details/hooks/useSection';
 
-import { Container, Content, Section, Loader } from './styles';
+import {
+  Container,
+  Content,
+  SectionOptions,
+  Option,
+  SectionContent,
+  Loader,
+} from './styles';
 
 export const DetailsPage: React.FC = () => {
-  const pokemon = useRoute().params as POKEMON;
-  const { goBack } = useNavigation();
-  const { isLoading, turnLoadingOn, turnLoadingOff } = useLoading();
-  const { getPokemonInfo, getPokemonSpecies } = usePokeapi();
-
-  const [sections, setSections] = useState<DETAIL_SECTION[]>(
-    DetailsSections.SECTIONS
-  );
   const [pokeInfo, setPokeInfo] = useState<POKEAPI_POKEMON>(
     {} as POKEAPI_POKEMON
   );
   const [pokeSpecies, setPokeSpecies] = useState<POKEAPI_SPECIES>(
     {} as POKEAPI_SPECIES
+  );
+
+  const pokemon = useRoute().params as POKEMON;
+  const { goBack } = useNavigation();
+  const { isLoading, turnLoadingOn, turnLoadingOff } = useLoading();
+  const { getPokemonInfo, getPokemonSpecies } = usePokeapi();
+  const { allSections, ActiveSectionContent, handleActiveSection } = useSection(
+    {
+      pokemon,
+      info: pokeInfo,
+      species: pokeSpecies,
+    }
   );
 
   const handleMarkAsFavorite = useCallback(() => {
@@ -74,9 +81,23 @@ export const DetailsPage: React.FC = () => {
       <Content>
         <PokeImage uri={pokemon.img} />
 
-        <SectionOptions options={sections} />
+        <SectionOptions>
+          {allSections.map(({ caption, isActive }) => (
+            <Option
+              key={caption}
+              isActive={isActive}
+              onPress={() =>
+                handleActiveSection({
+                  sectionName: caption as DETAIL_SECTIONS_NAME,
+                })
+              }
+            >
+              {caption}
+            </Option>
+          ))}
+        </SectionOptions>
 
-        <Section>
+        <SectionContent>
           {isLoading ? (
             <Loader
               color={AppColors.getColorByTypeName({
@@ -84,9 +105,9 @@ export const DetailsPage: React.FC = () => {
               })}
             />
           ) : (
-            <Moves moves={pokeInfo.moves} />
+            <ActiveSectionContent />
           )}
-        </Section>
+        </SectionContent>
       </Content>
     </Container>
   );
