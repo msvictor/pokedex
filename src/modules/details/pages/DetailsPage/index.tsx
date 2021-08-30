@@ -15,6 +15,7 @@ import { PokeImage } from '@details/components/PokeImage';
 import { SectionOptions } from '@details/components/SectionOptions';
 import { About } from '@details/components/Sections/About';
 import { Stats } from '@details/components/Sections/Stats';
+import { Evolution } from '@details/components/Sections/Evolution';
 
 import { Container, Content, Section, Loader } from './styles';
 
@@ -82,7 +83,13 @@ export const DetailsPage: React.FC = () => {
               })}
             />
           ) : (
-            <Stats stats={pokeInfo.stats} />
+            <Evolution
+              type={pokemon.type[0].toLowerCase() as POKE_TYPES_NAMES}
+              num={pokemon.num}
+              name={pokemon.name}
+              prev={pokemon.prev_evolution ?? []}
+              next={pokemon.next_evolution ?? []}
+            />
           )}
         </Section>
       </Content>

@@ -70,6 +70,9 @@ export const PokeList: React.FC<iPokeListProps> = ({
             imageUrl={item.img}
             empty={item.empty || false}
             onPress={() => {
+              if (item.empty) {
+                return;
+              }
               navigation.navigate('Details', item);
             }}
           />

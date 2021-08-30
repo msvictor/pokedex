@@ -8,6 +8,9 @@ class AppConstants {
   static readonly POKEAPIV2_SPECIES_URL: string =
     'https://pokeapi.co/api/v2/pokemon-species';
 
+  static readonly POKE_IMAGE_URL: string =
+    'http://www.serebii.net/pokemongo/pokemon';
+
   static readonly BIGGEST_POKE_BASE_STAT: number = 800;
 }
 
