@@ -1,15 +1,16 @@
-import React from 'react';
-import type { POKEMON } from '@types';
-import type { POKEAPI_POKEMON, POKEAPI_SPECIES } from '@contexts/pokeapi/types';
+import type { PokemonV1 } from '@modules/pokeapi/interfaces/PokemonV1';
+import type { PokemonV2 } from '@modules/pokeapi/interfaces/PokemonV2';
+import type { PokemonSpecies } from '@modules/pokeapi/interfaces/PokemonSpecies';
 
-import { InfoRow } from './components/InfoRow';
+import React from 'react';
 
 import { Container, Title } from './styles';
+import { InfoRow } from './components/InfoRow';
 
 interface iAboutSectionProps {
-  pokemon: POKEMON;
-  info: POKEAPI_POKEMON;
-  species: POKEAPI_SPECIES;
+  pokemon: PokemonV1;
+  info: PokemonV2;
+  species: PokemonSpecies;
 }
 
 export const About: React.FC<iAboutSectionProps> = ({

@@ -1,7 +1,7 @@
-import type { DETAIL_SECTION } from '@details/@types';
+import type { Section } from '../interfaces/Section';
 
 class DetailsSections {
-  static readonly SECTIONS: DETAIL_SECTION[] = [
+  static readonly SECTIONS: Section[] = [
     {
       caption: 'About',
       isActive: true,

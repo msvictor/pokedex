@@ -1,11 +1,12 @@
+import type { PokemonMove } from '@modules/pokeapi/interfaces/PokemonMove';
+
 import React from 'react';
-import type { POKEAPI_MOVE } from '@contexts/pokeapi/types';
 
 import { FlatList } from 'react-native';
 import { Container, MoveBox, MoveName } from './styles';
 
 interface iMovesSectionProps {
-  moves: POKEAPI_MOVE[];
+  moves: PokemonMove[];
 }
 
 export const Moves: React.FC<iMovesSectionProps> = ({

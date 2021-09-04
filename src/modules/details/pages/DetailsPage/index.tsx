@@ -1,19 +1,20 @@
-import type { POKEMON, POKE_TYPES_NAMES } from '@types';
-import type { DETAIL_SECTIONS_NAME } from '@modules/details/@types';
-import type { POKEAPI_POKEMON, POKEAPI_SPECIES } from '@contexts/pokeapi/types';
+import type { PokemonTypes } from '@infra/interfaces/PokemonTypes';
+import type { PokemonV1 } from '@modules/pokeapi/interfaces/PokemonV1';
+import type { PokemonV2 } from '@modules/pokeapi/interfaces/PokemonV2';
+import type { PokemonSpecies } from '@modules/pokeapi/interfaces/PokemonSpecies';
+import type { SectionsNames } from '@modules/details/interfaces/SectionsNames';
 
 import React, { useCallback, useEffect, useState } from 'react';
 import { useRoute, useNavigation } from '@react-navigation/native';
-import { useLoading } from '@hooks/useLoading';
-import { usePokeapi } from '@contexts/pokeapi';
+import { useLoading } from '@modules/_shared/hooks/useLoading';
+import { useSection } from '@modules/details/hooks/useSection';
 
-import AppColors from '@core/colors';
+import GetPokemonColorByTypeService from '@data/services/GetPokemonColorByTypeService';
+import GetPokemonInfoService from '@modules/pokeapi/services/GetPokemonInfoService';
+import GetPokemonSpeciesService from '@modules/pokeapi/services/GetPokemonSpeciesService';
 
-import { Header } from '@details/components/Header';
-import { PokeImage } from '@details/components/PokeImage';
-
-import { useSection } from '@details/hooks/useSection';
-
+import { Header } from '@modules/details/components/Header';
+import { PokeImage } from '@modules/details/components/PokeImage';
 import {
   Container,
   Content,
@@ -24,17 +25,17 @@ import {
 } from './styles';
 
 export const DetailsPage: React.FC = () => {
-  const [pokeInfo, setPokeInfo] = useState<POKEAPI_POKEMON>(
-    {} as POKEAPI_POKEMON
-  );
-  const [pokeSpecies, setPokeSpecies] = useState<POKEAPI_SPECIES>(
-    {} as POKEAPI_SPECIES
+  const [pokeInfo, setPokeInfo] = useState<PokemonV2>({} as PokemonV2);
+  const [pokeSpecies, setPokeSpecies] = useState<PokemonSpecies>(
+    {} as PokemonSpecies
   );
 
-  const pokemon = useRoute().params as POKEMON;
+  const pokemon = useRoute().params as PokemonV1;
+  const typeColor = GetPokemonColorByTypeService.execute({
+    type: pokemon.type[0].toLowerCase() as PokemonTypes,
+  });
   const { goBack } = useNavigation();
   const { isLoading, turnLoadingOn, turnLoadingOff } = useLoading();
-  const { getPokemonInfo, getPokemonSpecies } = usePokeapi();
   const { allSections, ActiveSectionContent, handleActiveSection } = useSection(
     {
       pokemon,
@@ -52,8 +53,8 @@ export const DetailsPage: React.FC = () => {
       turnLoadingOn();
 
       await Promise.all([
-        getPokemonInfo(pokemon.id),
-        getPokemonSpecies(pokemon.id),
+        GetPokemonInfoService.execute(pokemon.id),
+        GetPokemonSpeciesService.execute(pokemon.id),
       ]).then(([info, species]) => {
         setPokeInfo(info);
         setPokeSpecies(species);
@@ -66,11 +67,7 @@ export const DetailsPage: React.FC = () => {
   }, []);
 
   return (
-    <Container
-      bgColor={AppColors.getColorByTypeName({
-        typeName: pokemon.type[0].toLowerCase() as POKE_TYPES_NAMES,
-      })}
-    >
+    <Container bgColor={typeColor}>
       <Header
         num={pokemon.num}
         name={pokemon.name}
@@ -86,11 +83,7 @@ export const DetailsPage: React.FC = () => {
             <Option
               key={caption}
               isActive={isActive}
-              onPress={() =>
-                handleActiveSection({
-                  sectionName: caption as DETAIL_SECTIONS_NAME,
-                })
-              }
+              onPress={() => handleActiveSection(caption as SectionsNames)}
             >
               {caption}
             </Option>
@@ -98,15 +91,7 @@ export const DetailsPage: React.FC = () => {
         </SectionOptions>
 
         <SectionContent>
-          {isLoading ? (
-            <Loader
-              color={AppColors.getColorByTypeName({
-                typeName: pokemon.type[0].toLowerCase() as POKE_TYPES_NAMES,
-              })}
-            />
-          ) : (
-            <ActiveSectionContent />
-          )}
+          {isLoading ? <Loader color={typeColor} /> : <ActiveSectionContent />}
         </SectionContent>
       </Content>
     </Container>

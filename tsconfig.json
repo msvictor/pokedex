@@ -40,15 +40,11 @@
     "moduleResolution": "node" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */,
     "baseUrl": "./src" /* Base directory to resolve non-absolute module names. */,
     "paths": {
-      "@types/*": ["@types/*"],
-      "@core/*": ["core/*"],
       "@assets/*": ["assets/*"],
-      "@modules/*": ["modules/*"],
-      "@components/*": ["modules/_shared/components/*"],
-      "@contexts/*": ["modules/_shared/contexts/*"],
-      "@hooks/*": ["modules/_shared/hooks/*"],
-      "@details/*": ["modules/details/*"],
-      "@home/*": ["modules/home/*"]
+      "@core/*": ["core/*"],
+      "@data/*": ["data/*"],
+      "@infra/*": ["infra/*"],
+      "@modules/*": ["modules/*"]
     },
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
     // "typeRoots": [],                       /* List of folders to include type definitions from. */

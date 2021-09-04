@@ -1,9 +1,8 @@
 import styled from 'styled-components/native';
+import AppColors from '@core/AppColors';
+import AppImages from '@core/AppImages';
 
 import { Dimensions } from 'react-native';
-
-import AppColors from '@core/colors';
-import AppImages from '@core/images';
 
 const { width, height } = Dimensions.get('window');
 

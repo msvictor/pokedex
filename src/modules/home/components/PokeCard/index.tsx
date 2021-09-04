@@ -1,22 +1,22 @@
-import React, { Fragment } from 'react';
-
-import AppColors from '@core/colors';
-
-import { TypeBadge } from '@components/TypeBadge';
-
-import type { POKE_TYPES_NAMES } from '@types';
 import type { TouchableOpacityProps } from 'react-native';
+import type { PokemonTypes } from '@infra/interfaces/PokemonTypes';
 
+import React, { Fragment } from 'react';
+import AppColors from '@core/AppColors';
+
+import GetPokemonColorByTypeService from '@data/services/GetPokemonColorByTypeService';
+
+import { TypeBadge } from '@modules/_shared/components/TypeBadge';
 import {
-  Container,
-  Identification,
-  Name,
   Num,
-  Pokemon,
+  Name,
   Type,
+  Pokemon,
+  PokeBall,
   Thumbnail,
   PokeImage,
-  PokeBall,
+  Container,
+  Identification,
 } from './styles';
 
 interface iPokeCardProps extends TouchableOpacityProps {
@@ -41,8 +41,8 @@ export const PokeCard: React.FC<iPokeCardProps> = ({
       bgColor={
         empty
           ? AppColors.TRANSPARENT
-          : AppColors.getColorByTypeName({
-              typeName: type[0].toLowerCase() as POKE_TYPES_NAMES,
+          : GetPokemonColorByTypeService.execute({
+              type: type[0].toLowerCase() as PokemonTypes,
             })
       }
       {...rest}

@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 import Feather from 'react-native-vector-icons/Feather';
-import AppColors from '@core/colors';
+import AppColors from '@core/AppColors';
 
 export const Container = styled.View`
   flex-direction: column;

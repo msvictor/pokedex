@@ -1,12 +1,12 @@
-import React from 'react';
+import type { PokemonStat } from '@modules/pokeapi/interfaces/PokemonStat';
 
-import type { POKEAPI_STAT } from '@contexts/pokeapi/types';
+import React from 'react';
 
 import { Container } from './styles';
 import { StatRow } from './components/StatRow';
 
 interface iStatsSectionProps {
-  stats: POKEAPI_STAT[];
+  stats: PokemonStat[];
 }
 
 export const Stats: React.FC<iStatsSectionProps> = ({

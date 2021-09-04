@@ -1,6 +1,5 @@
 import styled from 'styled-components/native';
-
-import AppColors from '@core/colors';
+import AppColors from '@core/AppColors';
 
 export const Container = styled.View`
   background-color: ${AppColors.WHITE_ALPHA};

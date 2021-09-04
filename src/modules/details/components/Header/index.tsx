@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TypeBadge } from '@components/TypeBadge';
+import { TypeBadge } from '@modules/_shared/components/TypeBadge';
 import { Container, RowOptions, Icon, PokeNum, Row, PokeName } from './styles';
 
 interface iHeaderProps {

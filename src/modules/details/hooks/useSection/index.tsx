@@ -1,32 +1,31 @@
+import type { PokemonTypes } from '@infra/interfaces/PokemonTypes';
+import type { PokemonV1 } from '@modules/pokeapi/interfaces/PokemonV1';
+import type { PokemonV2 } from '@modules/pokeapi/interfaces/PokemonV2';
+import type { PokemonSpecies } from '@modules/pokeapi/interfaces/PokemonSpecies';
+import type { Section } from '@modules/details/interfaces/Section';
+import type { SectionsNames } from '@modules/details/interfaces/SectionsNames';
+
 import React, { Fragment } from 'react';
-import DetailsSections from '@details/utils/DetailsSections';
+import DetailsSections from '@modules/details/constants/DetailsSections';
 
-import { About } from '@details/components/Sections/About';
-import { Stats } from '@details/components/Sections/Stats';
-import { Evolution } from '@details/components/Sections/Evolution';
-import { Moves } from '@details/components/Sections/Moves';
-
-import type { POKEMON, POKE_TYPES_NAMES } from '@types';
-import type { DETAIL_SECTION, DETAIL_SECTIONS_NAME } from '@details/@types';
-import type { POKEAPI_POKEMON, POKEAPI_SPECIES } from '@contexts/pokeapi/types';
-
-type iHandleActiveSectionProps = {
-  sectionName: DETAIL_SECTIONS_NAME;
-};
+import { About } from '@modules/details/components/Sections/About';
+import { Stats } from '@modules/details/components/Sections/Stats';
+import { Moves } from '@modules/details/components/Sections/Moves';
+import { Evolution } from '@modules/details/components/Sections/Evolution';
 
 type UseSectionProps = {
-  pokemon: POKEMON;
-  info: POKEAPI_POKEMON;
-  species: POKEAPI_SPECIES;
+  pokemon: PokemonV1;
+  info: PokemonV2;
+  species: PokemonSpecies;
 };
 
 type UseSectionValues = {
-  allSections: DETAIL_SECTION[];
+  allSections: Section[];
   ActiveSectionContent: React.FC;
-  handleActiveSection: (props: iHandleActiveSectionProps) => void;
+  handleActiveSection: (sectionName: SectionsNames) => void;
 };
 
-function sortSections(sections: DETAIL_SECTION[]): DETAIL_SECTION[] {
+function sortSections(sections: Section[]): Section[] {
   return sections.sort((a, b) => {
     if (a.caption < b.caption) {
       return -1;
@@ -43,13 +42,13 @@ export function useSection({
   info,
   species,
 }: UseSectionProps): UseSectionValues {
-  const [allSections, setAllSections] = React.useState<DETAIL_SECTION[]>(
+  const pokemonType = pokemon.type[0].toLowerCase() as PokemonTypes;
+
+  const [allSections, setAllSections] = React.useState<Section[]>(
     sortSections(DetailsSections.SECTIONS)
   );
 
-  const handleActiveSection = ({
-    sectionName,
-  }: iHandleActiveSectionProps): void => {
+  const handleActiveSection = (sectionName: SectionsNames): void => {
     const filteredSections = allSections
       .filter((section) => section.caption !== sectionName)
       .map((section) => {
@@ -72,9 +71,9 @@ export function useSection({
         <Evolution
           num={pokemon.num}
           name={pokemon.name}
-          prev={pokemon.prev_evolution ?? []}
-          next={pokemon.next_evolution ?? []}
-          type={pokemon.type[0].toLowerCase() as POKE_TYPES_NAMES}
+          prev={pokemon.prev_evolution}
+          next={pokemon.next_evolution}
+          type={pokemonType}
         />
       ),
       Moves: <Moves moves={info.moves} />,
@@ -83,7 +82,7 @@ export function useSection({
     return sections[
       String(allSections.filter((sect) => sect.isActive)[0].caption)
     ];
-  }, [pokemon, info, species, allSections]);
+  }, [pokemon, info, species, allSections, pokemonType]);
 
   return {
     allSections,

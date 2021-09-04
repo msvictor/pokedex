@@ -1,14 +1,13 @@
 import React from 'react';
+import AppColors from '@core/AppColors';
+
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-import AppColors from '@core/colors';
-
-import { HomePage } from '@home/pages/HomePage';
-import { DetailsPage } from '@details/pages/DetailsPage';
+import { HomePage } from '@modules/home/pages/HomePage';
+import { DetailsPage } from '@modules/details/pages/DetailsPage';
 
 const Stack = createNativeStackNavigator();
 
-export const Routes: React.FC = () => {
+const AppRoutes: React.FC = () => {
   return (
     <Stack.Navigator
       initialRouteName="Home"
@@ -24,3 +23,5 @@ export const Routes: React.FC = () => {
     </Stack.Navigator>
   );
 };
+
+export default AppRoutes;

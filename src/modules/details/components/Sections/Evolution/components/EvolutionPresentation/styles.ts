@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import AppColors from '@core/colors';
+import AppColors from '@core/AppColors';
 
 interface iPokeImageProps {
   bgColor: string;

@@ -1,6 +1,6 @@
-import AppColors from '@core/colors';
-import AppConstants from '@core/constants';
 import styled from 'styled-components/native';
+import AppConstants from '@core/AppConstants';
+import AppColors from '@core/AppColors';
 
 export const Container = styled.View`
   flex-direction: row;

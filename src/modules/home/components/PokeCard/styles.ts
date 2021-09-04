@@ -1,7 +1,6 @@
 import styled from 'styled-components/native';
-
-import AppColors from '@core/colors';
-import AppImages from '@core/images';
+import AppColors from '@core/AppColors';
+import AppImages from '@core/AppImages';
 
 interface iContainerProps {
   bgColor: string;

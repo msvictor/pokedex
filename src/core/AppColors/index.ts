@@ -1,4 +1,10 @@
-import type { GREY_COLORS, TYPE_COLORS, GET_COLOR_BY_TYPE } from '@types';
+interface GreyColors {
+  '50': string;
+  '100': string;
+  '200': string;
+  '300': string;
+  '400': string;
+}
 
 class AppColors {
   static readonly TYPE_NORMAL: string = '#A8A878';
@@ -49,38 +55,13 @@ class AppColors {
 
   static readonly GREEN: string = '#21CE65';
 
-  static readonly GREY: GREY_COLORS = {
+  static readonly GREY: GreyColors = {
     '50': '#F9F9F9',
     '100': '#E0E0E0',
     '200': '#BDBDBD',
     '300': '#828282',
     '400': '#4F4F4F',
   };
-
-  static getColorByTypeName({ typeName }: GET_COLOR_BY_TYPE): string {
-    const typeColor: TYPE_COLORS = {
-      normal: this.TYPE_NORMAL,
-      fighting: this.TYPE_FIGHTING,
-      flying: this.TYPE_FLYING,
-      poison: this.TYPE_POISON,
-      ground: this.TYPE_GROUND,
-      rock: this.TYPE_ROCK,
-      bug: this.TYPE_BUG,
-      ghost: this.TYPE_GHOST,
-      steel: this.TYPE_STEEL,
-      fire: this.TYPE_FIRE,
-      water: this.TYPE_WATER,
-      grass: this.TYPE_GRASS,
-      electric: this.TYPE_ELECTRIC,
-      psychic: this.TYPE_PSYCHIC,
-      ice: this.TYPE_ICE,
-      dragon: this.TYPE_DRAGON,
-      dark: this.TYPE_DARK,
-      fairy: this.TYPE_FAIRY,
-    };
-
-    return typeColor[typeName];
-  }
 }
 
 export default AppColors;

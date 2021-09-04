@@ -1,32 +1,33 @@
-import React from 'react';
-import type { POKE_EVOLUTION, POKE_TYPES_NAMES } from '@types';
+import type { PokemonTypes } from '@infra/interfaces/PokemonTypes';
+import type { PokemonEvolution } from '@modules/pokeapi/interfaces/PokemonEvolution';
 
-import AppConstants from '@core/constants';
-import AppColors from '@core/colors';
+import React from 'react';
+import AppConstants from '@core/AppConstants';
+
+import GetPokemonColorByTypeService from '@data/services/GetPokemonColorByTypeService';
 
 import { Container } from './styles';
 import { EvolutionPresentation } from './components/EvolutionPresentation';
 
 interface iEvolutionSectionProps {
-  type: POKE_TYPES_NAMES;
+  type: PokemonTypes;
   num: string;
   name: string;
-  prev: POKE_EVOLUTION[];
-  next: POKE_EVOLUTION[];
+  prev?: PokemonEvolution[];
+  next?: PokemonEvolution[];
 }
 
 export const Evolution: React.FC<iEvolutionSectionProps> = ({
   type,
   num,
   name,
-  prev,
-  next,
+  prev = [],
+  next = [],
 }: iEvolutionSectionProps) => {
-  const color = AppColors.getColorByTypeName({
-    typeName: type as POKE_TYPES_NAMES,
+  const evolutions: PokemonEvolution[] = [...prev, { num, name }, ...next];
+  const color = GetPokemonColorByTypeService.execute({
+    type,
   });
-
-  const evolutions: POKE_EVOLUTION[] = [...prev, { num, name }, ...next];
 
   return (
     <Container>
