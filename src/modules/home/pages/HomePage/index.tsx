@@ -3,7 +3,7 @@ import type { NavigationProp, ParamListBase } from '@react-navigation/native';
 
 import React, { useCallback, useMemo } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { usePokeapi } from '@modules/pokeapi/context';
+import { usePokemons } from '@modules/pokeapi/contexts/pokemons';
 
 import SetEmptyPokemonService from '@modules/home/data/services/SetEmptyPokemonService';
 
@@ -14,7 +14,7 @@ import { PokeCard } from '@modules/home/components/PokeCard';
 export const HomePage: React.FC = () => {
   const COLUMNS_NUMBER = 2;
 
-  const { pokemons, filteredPokemons } = usePokeapi();
+  const { pokemons, filteredPokemons } = usePokemons();
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
 
   const createRows = useCallback(

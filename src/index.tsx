@@ -4,17 +4,17 @@ import AppRoutes from '@core/AppRoutes';
 
 import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { PokeapiProvider } from '@modules/pokeapi/context/index';
+import { PokemonsProvider } from '@modules/pokeapi/contexts/pokemons';
 
 import 'react-native-gesture-handler';
 
 const App: React.FC = () => {
   return (
     <NavigationContainer>
-      <PokeapiProvider>
+      <PokemonsProvider>
         <StatusBar backgroundColor={AppColors.WHITE} barStyle="dark-content" />
         <AppRoutes />
-      </PokeapiProvider>
+      </PokemonsProvider>
     </NavigationContainer>
   );
 };

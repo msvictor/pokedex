@@ -9,25 +9,25 @@ import React, {
   useState,
 } from 'react';
 
-import GetPokemonsService from '../data/services/GetPokemonsService';
+import GetPokemonsService from '@modules/pokeapi/data/services/GetPokemonsService';
 
-interface iPokeapiContextProps {
+interface iPokemonsContextProps {
   children: ReactNode;
 }
 
-interface iPokeapiContextData {
+interface iPokemonsContextData {
   pokemons: PokemonV1[];
   filteredPokemons: PokemonV1[];
   filterPokemonsByName: (pokeName: string) => void;
 }
 
-const PokeapiContext = createContext<iPokeapiContextData>(
-  {} as iPokeapiContextData
+const PokemonsContext = createContext<iPokemonsContextData>(
+  {} as iPokemonsContextData
 );
 
-export const PokeapiProvider: React.FC<iPokeapiContextProps> = ({
+export const PokemonsProvider: React.FC<iPokemonsContextProps> = ({
   children,
-}: iPokeapiContextProps) => {
+}: iPokemonsContextProps) => {
   const [pokemons, setPokemons] = useState<PokemonV1[]>([]);
   const [filteredPokemons, setFilteredPokemons] = useState<PokemonV1[]>([]);
 
@@ -57,7 +57,7 @@ export const PokeapiProvider: React.FC<iPokeapiContextProps> = ({
   }, []);
 
   return (
-    <PokeapiContext.Provider
+    <PokemonsContext.Provider
       value={{
         pokemons,
         filteredPokemons,
@@ -65,8 +65,9 @@ export const PokeapiProvider: React.FC<iPokeapiContextProps> = ({
       }}
     >
       {children}
-    </PokeapiContext.Provider>
+    </PokemonsContext.Provider>
   );
 };
 
-export const usePokeapi = (): iPokeapiContextData => useContext(PokeapiContext);
+export const usePokemons = (): iPokemonsContextData =>
+  useContext(PokemonsContext);

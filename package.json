@@ -7,6 +7,7 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
+    "test:coverage": "jest --coverage --watchAll false",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
@@ -26,6 +27,9 @@
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
     "@react-native-community/eslint-config": "^2.0.0",
+    "@testing-library/jest-native": "^4.0.2",
+    "@testing-library/react-hooks": "^7.0.2",
+    "@testing-library/react-native": "^7.2.0",
     "@types/jest": "^26.0.23",
     "@types/react-native": "^0.64.5",
     "@types/react-native-vector-icons": "^6.4.8",
@@ -50,7 +54,7 @@
     "lint-staged": "^11.1.2",
     "metro-react-native-babel-preset": "^0.64.0",
     "prettier": "^2.3.2",
-    "react-test-renderer": "17.0.1",
+    "react-test-renderer": "^17.0.2",
     "typescript": "^3.8.3"
   },
   "resolutions": {
@@ -59,6 +63,21 @@
   },
   "jest": {
     "preset": "react-native",
+    "collectCoverageFrom": [
+      "src/data/services/*.ts",
+      "src/modules/**/components/**/*.tsx",
+      "src/modules/**/hooks/**/*.ts",
+      "src/modules/**/hooks/**/*.tsx",
+      "src/modules/**/pages/**/*.tsx",
+      "src/modules/**/data/services/*.ts",
+      "src/modules/**/contexts/**/*.tsx"
+    ],
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-native/extend-expect"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(@react-native|react-native|react-native-vector-icons)/)"
+    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",
