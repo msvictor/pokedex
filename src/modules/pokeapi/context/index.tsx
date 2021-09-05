@@ -3,6 +3,7 @@ import type { PokemonV1 } from '@modules/pokeapi/interfaces/PokemonV1';
 import React, {
   createContext,
   ReactNode,
+  useCallback,
   useContext,
   useEffect,
   useState,
@@ -16,6 +17,8 @@ interface iPokeapiContextProps {
 
 interface iPokeapiContextData {
   pokemons: PokemonV1[];
+  filteredPokemons: PokemonV1[];
+  filterPokemonsByName: (pokeName: string) => void;
 }
 
 const PokeapiContext = createContext<iPokeapiContextData>(
@@ -26,6 +29,22 @@ export const PokeapiProvider: React.FC<iPokeapiContextProps> = ({
   children,
 }: iPokeapiContextProps) => {
   const [pokemons, setPokemons] = useState<PokemonV1[]>([]);
+  const [filteredPokemons, setFilteredPokemons] = useState<PokemonV1[]>([]);
+
+  const filterPokemonsByName = useCallback(
+    (pokeName: string) => {
+      if (!pokeName) {
+        setFilteredPokemons([]);
+      }
+
+      setFilteredPokemons(
+        pokemons.filter((pokemon) => {
+          return pokemon.name.toLowerCase().indexOf(pokeName) > -1;
+        })
+      );
+    },
+    [pokemons]
+  );
 
   useEffect(() => {
     async function getPokemons(): Promise<void> {
@@ -41,6 +60,8 @@ export const PokeapiProvider: React.FC<iPokeapiContextProps> = ({
     <PokeapiContext.Provider
       value={{
         pokemons,
+        filteredPokemons,
+        filterPokemonsByName,
       }}
     >
       {children}
