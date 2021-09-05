@@ -1,4 +1,4 @@
-import type { PokemonV1 } from '@modules/pokeapi/interfaces/PokemonV1';
+import type { PokemonV1 } from '@modules/pokeapi/infra/interfaces/PokemonV1';
 
 class SetEmptyPokemonService {
   public execute(pokeId: number): PokemonV1 {

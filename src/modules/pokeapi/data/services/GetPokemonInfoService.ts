@@ -1,5 +1,5 @@
 import type { CallRest } from '@infra/interfaces/CallRest';
-import type { PokemonV2 } from '@modules/pokeapi/interfaces/PokemonV2';
+import type { PokemonV2 } from '@modules/pokeapi/infra/interfaces/PokemonV2';
 
 import AppConstants from '@core/AppConstants';
 import RestClientService from '@data/services/RestClientService';

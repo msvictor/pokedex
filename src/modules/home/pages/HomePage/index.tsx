@@ -1,11 +1,11 @@
-import type { PokemonV1 } from '@modules/pokeapi/interfaces/PokemonV1';
+import type { PokemonV1 } from '@modules/pokeapi/infra/interfaces/PokemonV1';
 import type { NavigationProp, ParamListBase } from '@react-navigation/native';
 
 import React, { useCallback, useMemo } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { usePokeapi } from '@modules/pokeapi/context';
 
-import SetEmptyPokemonService from '@modules/home/services/SetEmptyPokemonService';
+import SetEmptyPokemonService from '@modules/home/data/services/SetEmptyPokemonService';
 
 import { SafeAreaView, FlatList } from 'react-native';
 import { Header } from '@modules/home/components/Header';

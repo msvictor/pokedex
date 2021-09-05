@@ -1,12 +1,12 @@
 import type { PokemonTypes } from '@infra/interfaces/PokemonTypes';
-import type { PokemonV1 } from '@modules/pokeapi/interfaces/PokemonV1';
-import type { PokemonV2 } from '@modules/pokeapi/interfaces/PokemonV2';
-import type { PokemonSpecies } from '@modules/pokeapi/interfaces/PokemonSpecies';
-import type { Section } from '@modules/details/interfaces/Section';
-import type { SectionsNames } from '@modules/details/interfaces/SectionsNames';
+import type { PokemonV1 } from '@modules/pokeapi/infra/interfaces/PokemonV1';
+import type { PokemonV2 } from '@modules/pokeapi/infra/interfaces/PokemonV2';
+import type { PokemonSpecies } from '@modules/pokeapi/infra/interfaces/PokemonSpecies';
+import type { Section } from '@modules/details/infra/interfaces/Section';
+import type { SectionsNames } from '@modules/details/infra/interfaces/SectionsNames';
 
 import React, { Fragment } from 'react';
-import DetailsSections from '@modules/details/constants/DetailsSections';
+import DetailsSections from '@modules/details/core/constants/DetailsSections';
 
 import { About } from '@modules/details/components/Sections/About';
 import { Stats } from '@modules/details/components/Sections/Stats';

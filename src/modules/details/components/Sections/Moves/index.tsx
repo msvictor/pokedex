@@ -1,4 +1,4 @@
-import type { PokemonMove } from '@modules/pokeapi/interfaces/PokemonMove';
+import type { PokemonMove } from '@modules/pokeapi/infra/interfaces/PokemonMove';
 
 import React from 'react';
 

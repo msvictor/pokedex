@@ -1,4 +1,4 @@
-import type { PokemonStat } from '@modules/pokeapi/interfaces/PokemonStat';
+import type { PokemonStat } from '@modules/pokeapi/infra/interfaces/PokemonStat';
 
 import React from 'react';
 

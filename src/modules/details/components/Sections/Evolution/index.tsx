@@ -1,5 +1,5 @@
 import type { PokemonTypes } from '@infra/interfaces/PokemonTypes';
-import type { PokemonEvolution } from '@modules/pokeapi/interfaces/PokemonEvolution';
+import type { PokemonEvolution } from '@modules/pokeapi/infra/interfaces/PokemonEvolution';
 
 import React from 'react';
 import AppConstants from '@core/AppConstants';

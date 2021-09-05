@@ -1,4 +1,4 @@
-import type { PokemonV1 } from '@modules/pokeapi/interfaces/PokemonV1';
+import type { PokemonV1 } from '@modules/pokeapi/infra/interfaces/PokemonV1';
 
 import React, {
   createContext,
@@ -9,7 +9,7 @@ import React, {
   useState,
 } from 'react';
 
-import GetPokemonsService from '../services/GetPokemonsService';
+import GetPokemonsService from '../data/services/GetPokemonsService';
 
 interface iPokeapiContextProps {
   children: ReactNode;

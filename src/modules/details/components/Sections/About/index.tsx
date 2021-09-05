@@ -1,6 +1,6 @@
-import type { PokemonV1 } from '@modules/pokeapi/interfaces/PokemonV1';
-import type { PokemonV2 } from '@modules/pokeapi/interfaces/PokemonV2';
-import type { PokemonSpecies } from '@modules/pokeapi/interfaces/PokemonSpecies';
+import type { PokemonV1 } from '@modules/pokeapi/infra/interfaces/PokemonV1';
+import type { PokemonV2 } from '@modules/pokeapi/infra/interfaces/PokemonV2';
+import type { PokemonSpecies } from '@modules/pokeapi/infra/interfaces/PokemonSpecies';
 
 import React from 'react';
 

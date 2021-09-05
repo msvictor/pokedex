@@ -1,8 +1,8 @@
 import type { PokemonTypes } from '@infra/interfaces/PokemonTypes';
-import type { PokemonV1 } from '@modules/pokeapi/interfaces/PokemonV1';
-import type { PokemonV2 } from '@modules/pokeapi/interfaces/PokemonV2';
-import type { PokemonSpecies } from '@modules/pokeapi/interfaces/PokemonSpecies';
-import type { SectionsNames } from '@modules/details/interfaces/SectionsNames';
+import type { PokemonV1 } from '@modules/pokeapi/infra/interfaces/PokemonV1';
+import type { PokemonV2 } from '@modules/pokeapi/infra/interfaces/PokemonV2';
+import type { PokemonSpecies } from '@modules/pokeapi/infra/interfaces/PokemonSpecies';
+import type { SectionsNames } from '@modules/details/infra/interfaces/SectionsNames';
 
 import React, { useCallback, useEffect, useState } from 'react';
 import { useRoute, useNavigation } from '@react-navigation/native';
@@ -10,8 +10,8 @@ import { useLoading } from '@modules/_shared/hooks/useLoading';
 import { useSection } from '@modules/details/hooks/useSection';
 
 import GetPokemonColorByTypeService from '@data/services/GetPokemonColorByTypeService';
-import GetPokemonInfoService from '@modules/pokeapi/services/GetPokemonInfoService';
-import GetPokemonSpeciesService from '@modules/pokeapi/services/GetPokemonSpeciesService';
+import GetPokemonInfoService from '@modules/pokeapi/data/services/GetPokemonInfoService';
+import GetPokemonSpeciesService from '@modules/pokeapi/data/services/GetPokemonSpeciesService';
 
 import { Header } from '@modules/details/components/Header';
 import { PokeImage } from '@modules/details/components/PokeImage';

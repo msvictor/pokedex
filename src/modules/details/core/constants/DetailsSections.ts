@@ -1,4 +1,4 @@
-import type { Section } from '../interfaces/Section';
+import type { Section } from '../../infra/interfaces/Section';
 
 class DetailsSections {
   static readonly SECTIONS: Section[] = [
