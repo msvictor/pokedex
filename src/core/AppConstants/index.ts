@@ -12,6 +12,8 @@ class AppConstants {
     'http://www.serebii.net/pokemongo/pokemon';
 
   static readonly BIGGEST_POKE_BASE_STAT: number = 800;
+
+  static readonly TEST_URL: string = 'http://api.testeurl.com';
 }
 
 export default AppConstants;

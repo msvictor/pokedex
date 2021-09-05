@@ -29,7 +29,7 @@ class GetPokemonColorByTypeService {
       fairy: AppColors.TYPE_FAIRY,
     };
 
-    return pokemonColor[type] || '#000';
+    return pokemonColor[type] || 'transparent';
   }
 }
 
