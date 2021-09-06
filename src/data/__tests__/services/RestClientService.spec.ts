@@ -1,7 +1,7 @@
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import AppConstants from '@core/AppConstants';
-import { waitFor, act } from '@testing-library/react-native';
+import { waitFor } from '@testing-library/react-native';
 import RestClientService from '@data/services/RestClientService';
 
 const apiMock = new MockAdapter(axios);

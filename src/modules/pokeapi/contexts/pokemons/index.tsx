@@ -17,6 +17,7 @@ interface iPokemonsContextProps {
 
 interface iPokemonsContextData {
   pokemons: PokemonV1[];
+  getPokemons: () => void;
   filteredPokemons: PokemonV1[];
   filterPokemonsByName: (pokeName: string) => void;
 }
@@ -46,13 +47,13 @@ export const PokemonsProvider: React.FC<iPokemonsContextProps> = ({
     [pokemons]
   );
 
+  const getPokemons = useCallback(async () => {
+    const pokes = await GetPokemonsService.execute();
+
+    setPokemons(pokes);
+  }, []);
+
   useEffect(() => {
-    async function getPokemons(): Promise<void> {
-      const pokes = await GetPokemonsService.execute();
-
-      setPokemons(pokes);
-    }
-
     getPokemons();
   }, []);
 
@@ -60,6 +61,7 @@ export const PokemonsProvider: React.FC<iPokemonsContextProps> = ({
     <PokemonsContext.Provider
       value={{
         pokemons,
+        getPokemons,
         filteredPokemons,
         filterPokemonsByName,
       }}
