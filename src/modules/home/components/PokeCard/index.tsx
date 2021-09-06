@@ -23,7 +23,7 @@ interface iPokeCardProps extends TouchableOpacityProps {
   num: string;
   name: string;
   type: string[];
-  empty: boolean;
+  empty?: boolean;
   imageUrl: string;
 }
 
@@ -37,6 +37,7 @@ export const PokeCard: React.FC<iPokeCardProps> = ({
 }: iPokeCardProps) => {
   return (
     <Container
+      testID="home-pokecard-component"
       activeOpacity={0.8}
       bgColor={
         empty
