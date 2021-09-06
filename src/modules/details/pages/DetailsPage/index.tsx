@@ -4,7 +4,7 @@ import type { PokemonV2 } from '@modules/pokeapi/infra/interfaces/PokemonV2';
 import type { PokemonSpecies } from '@modules/pokeapi/infra/interfaces/PokemonSpecies';
 import type { SectionsNames } from '@modules/details/infra/interfaces/SectionsNames';
 
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { Fragment, useCallback, useEffect, useState } from 'react';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import { useLoading } from '@modules/_shared/hooks/useLoading';
 import { useSection } from '@modules/details/hooks/useSection';
@@ -13,6 +13,7 @@ import GetPokemonColorByTypeService from '@data/services/GetPokemonColorByTypeSe
 import GetPokemonInfoService from '@modules/pokeapi/data/services/GetPokemonInfoService';
 import GetPokemonSpeciesService from '@modules/pokeapi/data/services/GetPokemonSpeciesService';
 
+import { StatusBar } from 'react-native';
 import { Header } from '@modules/details/components/Header';
 import { PokeImage } from '@modules/details/components/PokeImage';
 import {
@@ -67,33 +68,40 @@ export const DetailsPage: React.FC = () => {
   }, []);
 
   return (
-    <Container testID="details-page" bgColor={typeColor}>
-      <Header
-        num={pokemon.num}
-        name={pokemon.name}
-        type={pokemon.type}
-        goBack={goBack}
-        markFav={handleMarkAsFavorite}
-      />
-      <Content>
-        <PokeImage uri={pokemon.img} />
+    <Fragment>
+      <StatusBar backgroundColor={typeColor} barStyle="light-content" />
+      <Container testID="details-page" bgColor={typeColor}>
+        <Header
+          num={pokemon.num}
+          name={pokemon.name}
+          type={pokemon.type}
+          goBack={goBack}
+          markFav={handleMarkAsFavorite}
+        />
+        <Content>
+          <PokeImage uri={pokemon.img} />
 
-        <SectionOptions>
-          {allSections.map(({ caption, isActive }) => (
-            <Option
-              key={caption}
-              isActive={isActive}
-              onPress={() => handleActiveSection(caption as SectionsNames)}
-            >
-              {caption}
-            </Option>
-          ))}
-        </SectionOptions>
+          <SectionOptions>
+            {allSections.map(({ caption, isActive }) => (
+              <Option
+                key={caption}
+                isActive={isActive}
+                onPress={() => handleActiveSection(caption as SectionsNames)}
+              >
+                {caption}
+              </Option>
+            ))}
+          </SectionOptions>
 
-        <SectionContent>
-          {isLoading ? <Loader color={typeColor} /> : <ActiveSectionContent />}
-        </SectionContent>
-      </Content>
-    </Container>
+          <SectionContent>
+            {isLoading ? (
+              <Loader color={typeColor} />
+            ) : (
+              <ActiveSectionContent />
+            )}
+          </SectionContent>
+        </Content>
+      </Container>
+    </Fragment>
   );
 };

@@ -40,7 +40,9 @@ export const PokemonsProvider: React.FC<iPokemonsContextProps> = ({
 
       setFilteredPokemons(
         pokemons.filter((pokemon) => {
-          return pokemon.name.toLowerCase().indexOf(pokeName) > -1;
+          return (
+            pokemon.name.toLowerCase().indexOf(pokeName.toLowerCase()) > -1
+          );
         })
       );
     },
