@@ -13,7 +13,7 @@ export const Stats: React.FC<iStatsSectionProps> = ({
   stats,
 }: iStatsSectionProps) => {
   return (
-    <Container>
+    <Container testID="details-stats-section">
       {stats.map((pokeStat) => (
         <StatRow
           key={pokeStat.stat.name}
@@ -21,20 +21,22 @@ export const Stats: React.FC<iStatsSectionProps> = ({
           statValue={pokeStat.base_stat}
         />
       ))}
-      <StatRow
-        label="Total"
-        statValue={
-          stats.reduce((prev, current) => {
-            // eslint-disable-next-line
-            current = {
-              ...current,
-              base_stat: prev.base_stat + current.base_stat,
-            };
+      {stats.length > 0 && (
+        <StatRow
+          label="Total"
+          statValue={
+            stats.reduce((prev, current) => {
+              // eslint-disable-next-line
+              current = {
+                ...current,
+                base_stat: prev.base_stat + current.base_stat,
+              };
 
-            return current;
-          }).base_stat
-        }
-      />
+              return current;
+            }).base_stat
+          }
+        />
+      )}
     </Container>
   );
 };

@@ -67,7 +67,7 @@ export const DetailsPage: React.FC = () => {
   }, []);
 
   return (
-    <Container bgColor={typeColor}>
+    <Container testID="details-page" bgColor={typeColor}>
       <Header
         num={pokemon.num}
         name={pokemon.name}

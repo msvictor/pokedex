@@ -23,7 +23,7 @@ export const About: React.FC<iAboutSectionProps> = ({
   const { egg_groups } = species;
 
   return (
-    <Container>
+    <Container testID="details-about-section">
       <InfoRow label="Specie" caption={spc.name} />
 
       <InfoRow label="Height" caption={height} />

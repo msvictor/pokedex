@@ -19,7 +19,7 @@ export const Header: React.FC<iHeaderProps> = ({
   markFav,
 }: iHeaderProps) => {
   return (
-    <Container>
+    <Container testID="details-header">
       <RowOptions>
         <Icon name="arrow-left" onPress={goBack} />
         <PokeNum>#{num}</PokeNum>

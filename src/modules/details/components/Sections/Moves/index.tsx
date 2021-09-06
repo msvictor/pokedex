@@ -13,7 +13,7 @@ export const Moves: React.FC<iMovesSectionProps> = ({
   moves,
 }: iMovesSectionProps) => {
   return (
-    <Container>
+    <Container testID="details-moves-section">
       <FlatList
         data={moves}
         keyExtractor={(item) => item.move.name}
