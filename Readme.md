@@ -42,8 +42,8 @@
 ## Pokedex
 
 - [About](#about)
-- [Techs](#techs)
 - [The Application](#application)
+- [Techs](#techs)
 - [Clone and use for Free](#clone)
 
 <a id="about"></a>
@@ -51,6 +51,22 @@
 ## :interrobang: About
 
 <strong>Pokedex:</strong> a mobile app as the Pokedex from Pokémon game. This application contains all pokémons from generation 1. The project interface was made based on a prototype built for me on figma. [Check the prototype here](https://www.figma.com/file/A9ayw2reKw4xYcKv3LO4uP/Pokedex?node-id=0%3A1)
+
+<a id="application"></a>
+
+## :sparkles: The Application
+
+<h3 align="center">
+    <img alt="home" src="github/assets/home.png" width="20%">
+    <img alt="outflows" src="github/assets/search.png" width="20%">
+    <img alt="entries" src="github/assets/poke_listing.png" width="20%">
+</h3>
+<h3 align="center">
+    <img alt="home" src="github/assets/section_about.png" width="20%">
+    <img alt="entries" src="github/assets/section_evolution.png" width="20%">
+    <img alt="outflows" src="github/assets/section_moves.png" width="20%">
+    <img alt="add" src="github/assets/section_stats.png" width="20%">
+</h3>
 
 <a id="techs"></a>
 
@@ -73,22 +89,6 @@ The project was developed with the technologies below:
 - [React Hooks Testing Library](https://react-hooks-testing-library.com/reference/api)
 - [Styled Components](https://styled-components.com/)
 
-<a id="application"></a>
-
-## :sparkles: The Application
-
-<h3 align="center">
-    <img alt="home" src="github/assets/home.png" width="20%">
-    <img alt="outflows" src="github/assets/search.png" width="20%">
-    <img alt="entries" src="github/assets/poke_listing.png" width="20%">
-</h3>
-<h3 align="center">
-    <img alt="home" src="github/assets/section_about.png" width="20%">
-    <img alt="entries" src="github/assets/section_evolution.png" width="20%">
-    <img alt="outflows" src="github/assets/section_moves.png" width="20%">
-    <img alt="add" src="github/assets/section_stats.png" width="20%">
-</h3>
-
 <a id="clone"></a>
 
 ## :octocat:Clone this repo
@@ -99,7 +99,13 @@ The project was developed with the technologies below:
   $ git clone https://github.com/VictorGabrielMS/pokedex.git
 ```
 
-2. Execute:
+2. Go to folder:
+
+```sh
+  $ cd pokedex
+```
+
+3. Execute:
 
 ```sh
   $ npm install
@@ -110,3 +116,7 @@ The project was developed with the technologies below:
   # or on ios
   $ npm run ios
 ```
+
+## :memo: License
+
+This project is under MIT LICENSE. for more details follow the link: [LICENSE](LICENSE).
