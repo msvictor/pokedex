@@ -7,7 +7,7 @@
 </h1>
 
 <p align="center">
-   <a href="https://github.com/VictorGabrielMS">
+   <a href="https://github.com/msvictor">
     <img alt="Code by Victor Gabriel" src="https://img.shields.io/badge/code%20by-Victor Gabriel-%23E02041">
   </a>
 </p>
@@ -96,7 +96,7 @@ The project was developed with the technologies below:
 1. Clone :
 
 ```sh
-  $ git clone https://github.com/VictorGabrielMS/pokedex.git
+  $ git clone https://github.com/msvictor/pokedex.git
 ```
 
 2. Go to folder:
